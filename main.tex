@@ -68,13 +68,26 @@ Fukaya Kazuya\eauthorrefmark{1}、Fujie Kenshin\eauthorrefmark{1}、Shingu Yoshi
 
 \section{ロボットの構成}
 
+%ロボットの外観を図\ref{fig:robot}に示す。
+%ODrive社製の既製品である、BotWheel Explorer Kit\cite{RTshop}がベースになっている。
+%もともとのBotWheel Explorer Kitには全面の保護カバーがないが、
+%図のようにカバーを作成し、取り付けて参加した。
+%また、レギュレーションの関係で、
+%アルミフレームで台車の持ち手のような構造物を組み、
+%その上に非常停止ボタンを取り付けた。
+
 ロボットの外観を図\ref{fig:robot}に示す。
-ODrive社製の既製品である、BotWheel Explorer Kit\cite{RTshop}がベースになっている。
-もともとのBotWheel Explorer Kitには全面の保護カバーがないが、
-図のようにカバーを作成し、取り付けて参加した。
-また、レギュレーションの関係で、
-アルミフレームで台車の持ち手のような構造物を組み、
-その上に非常停止ボタンを取り付けた。
+本ロボットは、ODrive社製の既製品である、BotWheel Explorer Kit\cite{RTshop}がベースになっている。
+BotWheel Explorer Kitは、前方の2つの駆動輪と後方の1つの受動輪が、三角形の金属板に取り付けられている足回りだけのユニットであり、全面の保護カバーはない。
+そこで、図\ref{fig:robot_flame}(a)のように20×20mmのアルミフレームを金属板に固定し、(b)に示すように〇〇のカバーを取り付けることで雨除けとした。
+〇〇は、厚さ3mmで、手で簡単に曲げられることから湾曲した形状を作りやすいため採用した。
+さらに、金属板にはナットが飛び出ている箇所があるなど平らなスペースが小さいことから、アルミフレームの上に四角形の〇〇板を取り付け、ノートPCやバッテリーを搭載できるスペースを広げた。
+また、ロボットの最低高さ600mmという寸法制限と運搬のしやすさを考え、アルミフレームを上部に伸ばし台車の持ち手のような構造とした。
+非常停止スイッチ・3次元LiDARは、3Dプリンタで治具を製作しアルミフレームに固定した。
+%また、手動操作用のコントローラー置き場・信号検出用のスマートフォン置き場も、3Dプリンタで製作しアルミフレームに取り付けた。\par
+
+アルミフレームや治具等の設計には、Fusion360\cite{Fusion360}を使用した。
+ただ、無料ライセンスではチーム開発ができなかったため、制作したCADモデルを共有する際にはOnshape\cite{Onshape}を使用した。
 
 
 
@@ -96,7 +109,8 @@ Raspberry Pi上でROS 2を実行するための
 %     \includegraphics[width=1.0\linewidth]{figs/tuna_robot.pdf}
 %     \caption{ツナチームの機体}
 %     \label{tuna}
-%   \end{minipage}
+%   \end{minipage}flame}
+%  \end{center}
 %   \hspace{0.04\columnwidth} % ここで隙間作成
 %   \begin{minipage}[b]{0.48\columnwidth}
 %     \centering
@@ -117,6 +131,14 @@ Raspberry Pi上でROS 2を実行するための
     \includegraphics[width=1.0\linewidth]{figs/0_robot.pdf}
     \caption{チームの機体}
     \label{fig:robot}
+  \end{center}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=1.0\linewidth]{figs/robot_flame.pdf}
+    \caption{メカ設計}
+    \label{fig:robot_flame}
   \end{center}
 \end{figure}
 
@@ -507,6 +529,12 @@ IMUや3次元LiDARの追加，自作のナビゲーションスタックの使�
     \bibitem{ROS}
   Morgan Quigley {\it et al.}: ``ROS: an open-source Robot Operating System,''
   Open-Source Software workshop of the International Conference on Robotics and Automation、2009.
+
+  \bibitem{Fusion360}
+  Autodesk，\url{https://www.autodesk.com/jp/products/fusion-360/overview?term=1-YEAR&tab=subscription#top} (last visit 2025-02-02)
+
+  \bibitem{Onshape}
+  PTC，\url{https://www.onshape.com/en/} (last visit 2025-02-02)
 
   %\bibitem{fox2003}
   %Dieter Fox:
