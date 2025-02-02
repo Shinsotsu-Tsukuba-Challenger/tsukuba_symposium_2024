@@ -57,16 +57,34 @@ Fukaya Kazuya\eauthorrefmark{1}、Fujie Kenshin\eauthorrefmark{1}、Shingu Yoshi
 
 \section{ロボットの構成}
 
-%ロボットの外観を図\ref{fig:robot}に示す。
-%ODrive社製の既製品である、BotWheel Explorer Kit\cite{RTshop}がベースになっている。
-%もともとのBotWheel Explorer Kitには全面の保護カバーがないが、
-%図のようにカバーを作成し、取り付けて参加した。
-%また、レギュレーションの関係で、
-%アルミフレームで台車の持ち手のような構造物を組み、
-%その上に非常停止ボタンを取り付けた。
-
+\subsection{ハードウェア構成}
 ロボットの外観を図\ref{fig:robot}に示す。
 本ロボットは、ODrive社製の既製品である、BotWheel Explorer Kit\cite{RTshop}がベースになっている。
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=1.0\linewidth]{figs/0_robot.pdf}
+    \caption{チームの機体}
+    \label{fig:robot}
+  \end{center}
+\end{figure}
+
+
+このロボットをベースに使用する理由はなんといっても安さである。図\ref{fig:b_robot_price}のように、驚くべきことに\$799で購入することが可能である。
+さらに、購入内容としては「Full Kit」という魅力的な内容である。
+これは他のロボットの購入サイトを比較しても、類を見ないものであるため、ありがたく購入をさせていただいた。
+しかし、「Full Kit」といっても、図\ref{fig:b_robot_price}のように電装部品も込みというわけではなかった。
+商品ページの画像にはいかにも全て揃ってますということを伝えているようにしか思えないためやめていただきたい。
+また、購入する場合、タイミングでは円相場と海外手数料について考慮していただきたい。
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=0.8\linewidth]{figs/b_kit_price.pdf}
+    \caption{BotWheel Explorer Kitの金額および内容について}
+    \label{fig:b_robot_price}
+  \end{center}
+\end{figure}
+
 BotWheel Explorer Kitは、前方の2つの駆動輪と後方の1つの受動輪が、三角形の金属板に取り付けられている足回りだけのユニットであり、全面の保護カバーはない。
 そこで、図\ref{fig:robot_flame}(a)のように20×20mmのアルミフレームを金属板に固定し、(b)に示すように〇〇のカバーを取り付けることで雨除けとした。
 〇〇は、厚さ3mmで、手で簡単に曲げられることから湾曲した形状を作りやすいため採用した。
@@ -92,37 +110,6 @@ Raspberry Pi上でROS 2を実行するための
 センサ構成としては、各チームの機体に外界センサとして
 2次元LiDAR、3次元LiDAR、内界センサとしてIMUを搭載した。
 
-% \begin{figure}[H]
-%   \begin{minipage}[b]{0.48\columnwidth}
-%     \centering
-%     \includegraphics[width=1.0\linewidth]{figs/tuna_robot.pdf}
-%     \caption{ツナチームの機体}
-%     \label{tuna}
-%   \end{minipage}flame}
-%  \end{center}
-%   \hspace{0.04\columnwidth} % ここで隙間作成
-%   \begin{minipage}[b]{0.48\columnwidth}
-%     \centering
-%     \includegraphics[width=1.0\linewidth]{figs/tama_robot.pdf}
-%     \caption{たまチームの機体}
-%     \label{tama}
-%   \end{minipage}\\
-%   \begin{minipage}[b]{0.48\columnwidth}
-%     \centering
-%     \includegraphics[width=1.0\linewidth]{figs/mugimaru_robot.pdf}
-%     \caption{むぎまるチームの機体}
-%     \label{mugi}
-%   \end{minipage}
-% \end{figure}
-
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics[width=1.0\linewidth]{figs/0_robot.pdf}
-    \caption{チームの機体}
-    \label{fig:robot}
-  \end{center}
-\end{figure}
-
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=1.0\linewidth]{figs/robot_flame.pdf}
@@ -130,6 +117,8 @@ Raspberry Pi上でROS 2を実行するための
     \label{fig:robot_flame}
   \end{center}
 \end{figure}
+
+\subsection{ソフトウェア構成}
 
 ソフトウェアについては、
 本年度は、3チーム全てがROS 2をベースに構築した。
