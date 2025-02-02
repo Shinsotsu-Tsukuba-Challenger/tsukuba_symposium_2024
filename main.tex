@@ -69,14 +69,6 @@ Fukaya Kazuya\eauthorrefmark{1}、Fujie Kenshin\eauthorrefmark{1}、Shingu Yoshi
   \end{center}
 \end{figure}
 
-
-このロボットをベースに使用する理由はなんといっても安さである。図\ref{fig:b_robot_price}のように、驚くべきことに\$799で購入することが可能である。
-さらに、購入内容としては「Full Kit」という魅力的な内容である。
-これは他のロボットの購入サイトを比較しても、類を見ないものであるため、ありがたく購入をさせていただいた。
-しかし、「Full Kit」といっても、図\ref{fig:b_robot_price}のような電装部品も込みというわけではなかった。
-商品ページの画像にはいかにも全て揃っているように間違える可能性があるので注意する必要がある。
-また、購入のタイミングでは円相場と海外手数料について考慮する必要がある。
-
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=0.8\linewidth]{figs/b_kit_price.pdf}
@@ -85,8 +77,38 @@ Fukaya Kazuya\eauthorrefmark{1}、Fujie Kenshin\eauthorrefmark{1}、Shingu Yoshi
   \end{center}
 \end{figure}
 
-BotWheel Explorer Kitは、梱包されているものは、
-前方の2つの駆動輪と後方の1つの受動輪が、三角形の金属板に取り付けられている足回りだけのユニットであり、全面の保護カバーはない。
+このロボットをベースに使用する理由はなんといっても安さである。図\ref{fig:b_robot_price}のように、驚くべきことに\$799で購入することが可能である。
+さらに、購入内容としては「Full Kit」という魅力的な内容である。
+これは他のロボットの購入サイトを比較しても、類を見ないものであるため、ありがたく購入をさせていただいた。
+しかし、「Full Kit」といっても、図\ref{fig:b_robot_price}のような電装部品も込みというわけではなかった。
+商品ページの画像にはいかにも全て揃っているように間違える可能性があるので注意する必要がある。
+また、購入のタイミングでは円相場と海外手数料について考慮する必要がある。
+
+Full Kitを購入した場合に梱包されているものを表に示す。
+内容としては、駆動用のインホイールモータ、制御用のモータドライバ、
+モータの取り付けおよび機体のボーディのためのシャーシ、モータドライバとインホイールモーター間の通信に必要な
+CANハーネスが梱包等が梱包されている。
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|c|l|}
+      \hline
+      \multicolumn{3}{|c|}{\textbf{BotWheel Explorer Kit（Full Kit）}} \\
+      \hline
+      部品 & 数量 & 詳細 \\
+      \hline
+      ODrive S1 & 2 & モータドライバー \\
+      ODrive Botwheel & 2 & インホイールモーター（エンコーダ付き） \\
+      Chassis Plate & 1 & シャーシ \\
+      Caster & 1 & キャスター \\
+      CAN harnesses & 2 & CAN ハーネス \\
+      \hline
+  \end{tabular}
+  \caption{BotWheel Explorer Kit の部品一覧}
+  \label{tab:botwheel_kit}
+\end{table}
+
+
+BotWheel Explorer Kitは、前方の2つの駆動輪と後方の1つの受動輪が、三角形の金属板に取り付けられている足回りだけのユニットであり、全面の保護カバーはない。
 そこで、図\ref{fig:robot_flame}(a)のように20×20mmのアルミフレームを金属板に固定し、(b)に示すように〇〇のカバーを取り付けることで雨除けとした。
 〇〇は、厚さ3mmで、手で簡単に曲げられることから湾曲した形状を作りやすいため採用した。
 さらに、金属板にはナットが飛び出ている箇所があるなど平らなスペースが小さいことから、アルミフレームの上に四角形の〇〇板を取り付け、ノートPCやバッテリーを搭載できるスペースを広げた。
