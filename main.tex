@@ -144,38 +144,32 @@ Raspberry Pi上でROS 2を実行するための
 \subsection{ソフトウェア構成}
 
 ソフトウェアについては、
-本年度は、3チーム全てがROS 2をベースに構築した。
-昨年度まではROS\cite{ROS}を使用していたが、
-ROSの最終リリースであるROS Noetic Ninjemysが2025年5月に
-サポート終了を迎えることを受けてのことである。
-
-他、各チームの特徴について、
+本年度は、
+ROS 2をベースに構築した。
+ソフトウェアの特徴について、
 次節以降で説明する。
 
 
-\subsection{ツナチーム}
-
-
 \subsubsection{概要}
-ツナチームは、ROS 2をベースに自作ナビゲーションスタックを作成して使用した。
+% ツナチームは、ROS 2をベースに自作ナビゲーションスタックを作成して使用した。
 %図\ref{fig:robot}の小型移動ロボット上で動作させ、
 %をさせることを目的とした。
-この自作ナビゲーションスタックは、
-GitHub上のリポジトリuhobeike/ike\_nav\cite{ike_nav}
-に公開している。
-また、リポジトリの内容については
+% この自作ナビゲーションスタックは、
+% GitHub上のリポジトリuhobeike/ike\_nav\cite{ike_nav}
+% に公開している。
+% また、リポジトリの内容については
 %「自作ナビゲーションスタックでつくばチャレンジ2023に挑戦してみた話」
-\cite{ike_nav_detail}にまとめた。
+% \cite{ike_nav_detail}にまとめた。
 %↑いちおう教育的観点で言うと、「記事内に金出した研究室とかその他関係者に謝辞入れやがれ自分のことしか書いてなくてよくないよこれ。」
 %（言うの恥ずかしいので言わせないでほしい・・・）
 
-このパッケージは「Nav2のような複雑な
-システムではなく、シンプルで修正しやすいパッケージを作成したい」
-という動機で作成した。
-ソフトウェアを再利用してフィードバックすることも重要であるが、
-ブラックボックスのない
-ソフトウェアパッケージを開発する方針も考えられたため、
-開発に踏み切った。
+% このパッケージは「Nav2のような複雑な
+% システムではなく、シンプルで修正しやすいパッケージを作成したい」
+% という動機で作成した。
+% ソフトウェアを再利用してフィードバックすることも重要であるが、
+% ブラックボックスのない
+% ソフトウェアパッケージを開発する方針も考えられたため、
+% 開発に踏み切った。
 
 %例えば、つくばチャレンジ中に何か解決したい問題が発生し、
 %ソフトウェア上で解決したいとなった場合に、
@@ -195,47 +189,47 @@ GitHub上のリポジトリuhobeike/ike\_nav\cite{ike_nav}
 %このLiDARの捜査角度は、270[deg]であり、最大検出距離は60[m]である。
 
 
-\subsubsection{ike\_navのシステム構成}
+% \subsubsection{ike\_navのシステム構成}
 
-図\ref{fig:tuna_system}に、ike\_navのシステム構成を示す。
-ike\_navは、地図、2次元LiDARからの観測情報（スキャン）、
-ロボットのオドメトリを入力して受け入れ、
-ある目標地点まで到達するための速度および推定した自己位置を出力する。
+% 図\ref{fig:tuna_system}に、ike\_navのシステム構成を示す。
+% ike\_navは、地図、2次元LiDARからの観測情報（スキャン）、
+% ロボットのオドメトリを入力して受け入れ、
+% ある目標地点まで到達するための速度および推定した自己位置を出力する。
 
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics[width=1.0\linewidth]{figs/ike_nav.pdf}
-    \caption{ツナチームのシステム構成}
-    \label{fig:tuna_system}
-  \end{center}
-\end{figure}
+% \begin{figure}[h]
+%   \begin{center}
+%     \includegraphics[width=1.0\linewidth]{figs/ike_nav.pdf}
+%     \caption{ツナチームのシステム構成}
+%     \label{fig:tuna_system}
+%   \end{center}
+% \end{figure}
 
-ike\_navはメタパッケージであり、
-自己位置推定、経路計画、経路追従などがそれぞれ別々にパッケージ化されている。
-含まれるパッケージを列挙すると、次のようになる。
-\begin{description}
-  \item[・ike\_controller（経路追従）:]経路、推定位置を入力し、速度を出力
-  \item[・ike\_costmap\_2d（コストマップの管理）:]地図、観測情報を入力し、コストマップを出力
-  \item[・ike\_localization（自己位置推定）:]観測情報、地図、ロボットのオドメトリを入力し、自己位置を出力
-  \item[・ike\_map\_server（地図の管理）:]pgmなどのデータからROS 2の占有格子地図を出力
-  \item[・ike\_nav\_server（目標地点までの管理）:]目標地点を入力し、到達するまでを管理
-  \item[・ike\_planner（経路計画）:]コストマップ、推定位置を入力し、経路を出力
-  \item[・ike\_waypoint\_follower（複数目標地点の管理）:]事前に設定した目標地点を辿るように管理
-\end{description}
+% ike\_navはメタパッケージであり、
+% 自己位置推定、経路計画、経路追従などがそれぞれ別々にパッケージ化されている。
+% 含まれるパッケージを列挙すると、次のようになる。
+% \begin{description}
+%   \item[・ike\_controller（経路追従）:]経路、推定位置を入力し、速度を出力
+%   \item[・ike\_costmap\_2d（コストマップの管理）:]地図、観測情報を入力し、コストマップを出力
+%   \item[・ike\_localization（自己位置推定）:]観測情報、地図、ロボットのオドメトリを入力し、自己位置を出力
+%   \item[・ike\_map\_server（地図の管理）:]pgmなどのデータからROS 2の占有格子地図を出力
+%   \item[・ike\_nav\_server（目標地点までの管理）:]目標地点を入力し、到達するまでを管理
+%   \item[・ike\_planner（経路計画）:]コストマップ、推定位置を入力し、経路を出力
+%   \item[・ike\_waypoint\_follower（複数目標地点の管理）:]事前に設定した目標地点を辿るように管理
+% \end{description}
 
-ike\_localization（自己位置推定）とike\_planner（経路計画）は、
-それぞれつくばチャレンジでもよく用いられる
-MCL（Monte Carlo Localization）\cite{fox1999etal}
-とA*探索\cite{hart1968}を利用して実装した。
+% ike\_localization（自己位置推定）とike\_planner（経路計画）は、
+% それぞれつくばチャレンジでもよく用いられる
+% MCL（Monte Carlo Localization）\cite{fox1999etal}
+% とA*探索\cite{hart1968}を利用して実装した。
 %最短経路を導出するアルゴリズムであり、
 %他の最短経路法であるダイクストラ\cite{dijkstra1959}よりも
 %速く最短経路を導出することができるため採用した。
-ike\_planner（経路計画）のA*では、センサで観測した障害物
-を回避する経路を導出するように実装した。
-ike\_controller（経路追従）では、経路追従の手法として、
-モデル予測制御（Model Predictive Control、MPC）\cite{alberto2006}を実装した。
-MPCは、他の追従手法と比較して、計算コストが高いというデメリットがあるが、
-経路に対する追従性が高いというメリットがあるため採用した。
+% ike\_planner（経路計画）のA*では、センサで観測した障害物
+% を回避する経路を導出するように実装した。
+% ike\_controller（経路追従）では、経路追従の手法として、
+% モデル予測制御（Model Predictive Control、MPC）\cite{alberto2006}を実装した。
+% MPCは、他の追従手法と比較して、計算コストが高いというデメリットがあるが、
+% 経路に対する追従性が高いというメリットがあるため採用した。
 
 
 \subsection{たまチーム}\label{sub:localization}
@@ -291,16 +285,17 @@ Ubuntu 22.04上で動作する既存のROS 2 Humble用のパッケージを用�
 %ノートPCでは自己位置推定，経路生成，経路追従などの主要となる計算を行う役割を担当していた．
 
 センサについては，3次元LiDARとしてLivox製のMid-360を使用し，
-IMUにはMid-360に内蔵されるICM40609を使用した．
+% IMUにはMid-360に内蔵されるICM40609を使用した．
 使用したパッケージを図\ref{fig:mugimaru_system}に示す．
 
 \subsubsection{自律移動システム}
 
-むぎまるチームが用いた自律移動の手法は，走行区間の3次元環境地図を事前に作成し，
-3次元LiDARのスキャンデータとのマッチングにより求めた自己位置
-をもとに自律走行を行うものである．
-走行区間の3次元環境地図の作成には，FAST-LIOというLiDAR慣性オドメトリパッケージ
-\cite{fastlio}を使用した．
+自律移動の手法は，3次元LiDARから取得した走行区間のスキャンデータから2次元の環境地図を事前に作成し，
+実際のロボット走行中に取得するスキャンデータとのマッチングにより求めた自己位置をもとに自律走行を行うものである。
+2次元地図の作成には2次元のレーザースキャン情報が必要となる。
+今回使用したLiDARから得られるスキャンデータは3次元点群であるため2次元に変換する処理を行った。
+
+3次元点群から2次元のレーザースキャン情報に変換には、pointcloud\_to\_laserscan\cite{pcl_lsc}を使用した。
 %図 fast\_lio package inout
 自己位置推定には，Autoware Universeの自己位置推定パッケージである
 ndt\_scan\_matcherとekf\_localizerを使用した\cite{autoware}．
@@ -321,14 +316,6 @@ PCD形式の3次元地図から2次元地図を生成するパッケージを使
     \label{fig:mugimaru_system}
   \end{center}
 \end{figure}
-
-%\begin{figure}[h]
-%  \begin{center}
-%      \includegraphics[width=1.0\linewidth]{figs/mugimaru_hard.pdf}
-%      \caption{むぎまるチームのハードウェア構成}
-%      \label{fig:mugimaru_hard}
-%  \end{center}
-%\end{figure}
 
 
 %\section{本走行でのリタイアの原因}
@@ -644,8 +631,8 @@ IMUや3次元LiDARの追加，自作のナビゲーションスタックの使�
   Bemporad, Alberto: ``Model Predictive Control Design: New Trends and Tools,''
   Proceedings of the 45th IEEE Conference on Decision and Control, pp. 6678-6683, 2006.
 
-  \bibitem{fastlio}
-  Ericsii: ``Ericsii/FAST\_LIO (ros2 branch),'' \url{https://github.com/Ericsii/FAST_LIO.git} (last visit: 2023-11-19).
+  \bibitem{pcl_lsc}
+  ROS Perception: ``ROS Perception/pointcloud\_to\_laserscan (humble branch),'' \url{https://github.com/ros-perception/pointcloud_to_laserscan} (last visit: 2025-02-02).
 
   \bibitem{autoware}
   The Autoware Foundation: ``autowarefoundation/autoware.universe,'' \url{https://github.com/autowarefoundation/autoware.universe.git} (last visit: 2023-11-19).
