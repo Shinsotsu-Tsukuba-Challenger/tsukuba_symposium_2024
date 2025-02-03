@@ -67,9 +67,10 @@ Fukaya Kazuya\eauthorrefmark{1}、Fujie Kenshin\eauthorrefmark{1}、Shingu Yoshi
 \subsection{概要}
 本チームでは、新卒がつくばチャレンジに参加できるようできるだけ安価で開発環境を整えやすいロボット
 構成を目指してハードウェアの選定を行った。
-\ref{sub:hardware}節では、採用したロボット、センサ、保護カバーなどの詳細について述べる。
+\ref{sub:hardware}節では、採用したロボット、センサ、ロボット保護カバーなどの詳細について述べる。
 
-
+ソフトウェアについては、本チームはROS 2\cite{ROS 2}をベースに構築した。
+ソフトウェアの特徴について、\ref{sub:software}節以降で説明する。
 
 
 \subsection{ハードウェア構成}\label{sub:hardware}
@@ -178,25 +179,17 @@ Mid-360の取り付け位置は、1つのLiDARで自己位置推定と障害物�
   \end{center}
 \end{figure}
 
-\subsection{ソフトウェア構成}
+\subsection{ソフトウェア構成}\label{sub:software}
 
-ソフトウェアについては、本年度はROS 2\cite{ROS 2}をベースに構築した。
-ソフトウェアの特徴について、次節以降で説明する。
-
-
-\subsubsection{概要}
 本チームで用いたソフトウェアはすべて、Ubuntu 22.04上で動作する
 既存のROS 2 Humble用のパッケージを使用した。
 使用したパッケージはGitHub上に公開されているため、誰でも使用することが可能である。
-
-また，本チームではソフトウェア開発環境をチームで統一するためにDocker上でROS 2 Humble環境を構築した．
-
-\subsubsection{使用したハードウェアとソフトウェア}
+また，ソフトウェア開発環境をチームで統一するためにDocker上でROS 2 Humble環境を構築した．
 
 本チームのシステムの構成を図\ref{fig:shinsotu_system_diagram}に示す．
 ロボットに搭載された3D LiDARからセンサ情報をノートPCに送信する．
-ノートPCでは自己位置推定，経路生成，経路追従などの主要となる計算を行う役割を担当していた．
-その結果として得られた制御指令がRaspberry Pi 4Bに返される．
+ノートPCは自己位置推定，経路生成，経路追従などの主要となる計算を行う役割を担当した．
+これらの計算結果から得られた制御指令がRaspberry Pi 4Bに返される。
 
 \begin{figure}[h]
   \begin{center}
