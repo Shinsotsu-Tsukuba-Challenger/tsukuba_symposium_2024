@@ -52,7 +52,8 @@ Fukaya Kazuya\eauthorrefmark{1}、Fujie Kenshin\eauthorrefmark{1}、Shingu Yoshi
 本稿の構成は次の通りである。
 2章ではロボットのソフトウェア、ハードウェア構成について説明し、
 3章では本走行の結果と見つかった課題を示す。
-4章では本年度のつくばチャレンジで利用しなかった研究室での取り組みを紹介し、
+% 4章では本年度のつくばチャレンジで利用しなかった研究室での取り組みを紹介し、
+4章では本年度のつくばチャレンジで利用しなかった本チームでの取り組みを紹介し、
 5章では結言を述べる。
 
 \section{ロボットの構成}
@@ -120,8 +121,8 @@ BotWheel Explorer Kitは、前方の2つの駆動輪と後方の1つの受動輪
 ただ、無料ライセンスではチーム開発ができなかったため、制作したCADモデルを共有する際にはOnshape\cite{Onshape}を使用した。
 
 
-
 計算機については、ノートPCを各ロボットに搭載して使用した。
+?ここいる or 要訂正？
 昨年は、1チームが計算機としてRaspberry Pi 4 Model Bのみを
 使用して自律走行を実現した\cite{池邉2022}。
 しかし本年度については、
@@ -132,6 +133,7 @@ Raspberry Pi上でROS 2を実行するための
 ノートPCと制御用のRaspberry Piの2台の計算機が搭載されることとなる。
 センサ構成としては、各チームの機体に外界センサとして
 2次元LiDAR、3次元LiDAR、内界センサとしてIMUを搭載した。
+?ここいる or 要訂正？
 
 \begin{figure}[h]
   \begin{center}
@@ -143,7 +145,7 @@ Raspberry Pi上でROS 2を実行するための
 
 \subsection{ソフトウェア構成}
 
-ソフトウェアについては、本年度はROS 2をベースに構築した。
+ソフトウェアについては、本年度はROS 2\cite{ROS 2}をベースに構築した。
 ソフトウェアの特徴について、次節以降で説明する。
 
 
@@ -484,11 +486,11 @@ IMUや3次元LiDARの追加，自作のナビゲーションスタックの使�
   Macenski, Steven {\it et al.}: ``Robot Operating System 2: Design, architecture, and uses in the wild,''
   Science Robotics, Vol. 7、No. 66, 2022.
 
-  \bibitem{emcl2}
-  Ryuichi Ueda: ``ryuichiueda/emcl2,'' \url{https://github.com/ryuichiueda/emcl2} (last visit: 2024-01-01).
+  % \bibitem{emcl2}
+  % Ryuichi Ueda: ``ryuichiueda/emcl2,'' \url{https://github.com/ryuichiueda/emcl2} (last visit: 2024-01-01).
 
-  \bibitem{emcl2_ros2}
-  Ryuichi Ueda: ``CIT-Autonomous-Robot-Lab/emcl2\_ros2,'' \url{https://github.com/CIT-Autonomous-Robot-Lab/emcl2_ros2} (last visit: 2024-01-01).
+  % \bibitem{emcl2_ros2}
+  % Ryuichi Ueda: ``CIT-Autonomous-Robot-Lab/emcl2\_ros2,'' \url{https://github.com/CIT-Autonomous-Robot-Lab/emcl2_ros2} (last visit: 2024-01-01).
 
 
   \bibitem{RTshop}
@@ -591,35 +593,35 @@ IMUや3次元LiDARの追加，自作のナビゲーションスタックの使�
   % \bibitem{出野畑中}
   %   畑中 優一郎，出野 廣太郎，上田 隆一：``Raspberry Pi 3BのみでRaspberry Pi Catのナビゲーション（屋内環境編）''，CIT自律ロボット研究室，\url{https://lab.ueda.tech/?post=20211210} (last visit 2022-01-02)
 
-  \bibitem{ike_nav}
-  Tatsuhiro Ikebe: ``uhobeike/ike\_nav,'' \url{https://github.com/uhobeike/ike_nav} (last visit: 2024-01-10).
+  % \bibitem{ike_nav}
+  % Tatsuhiro Ikebe: ``uhobeike/ike\_nav,'' \url{https://github.com/uhobeike/ike_nav} (last visit: 2024-01-10).
 
-  \bibitem{ike_nav_detail}
-  池邉龍宏: ``自作ナビゲーションスタックでつくばチャレンジ2023に挑戦してみた話''，
-  \url{https://qiita.com/BEIKE/items/f3ff141cc25d49c01363} (last visit 2023-1-10).
+  % \bibitem{ike_nav_detail}
+  % 池邉龍宏: ``自作ナビゲーションスタックでつくばチャレンジ2023に挑戦してみた話''，
+  % \url{https://qiita.com/BEIKE/items/f3ff141cc25d49c01363} (last visit 2023-1-10).
 
 
-  \bibitem{fox1999etal}
-	  D. Fox {\it et al.}: ``Monte Carlo Localization: Efficient Position Estimation for Mobile Robots,''
-  Proc. of AAAI, pp. 343-349, 1999.
+  % \bibitem{fox1999etal}
+	%   D. Fox {\it et al.}: ``Monte Carlo Localization: Efficient Position Estimation for Mobile Robots,''
+  % Proc. of AAAI, pp. 343-349, 1999.
 
-  \bibitem{hart1968}
-  Peter E. Hart and Nils J. Nilsson and Bertram Raphael: ``A Formal Basis for the Heuristic Determination of Minimal Cost Paths,''
-  IEEE Transactions on Systems Science and Cybernetics, Vol. 4, No.2, pp. 100-107, 1968.
+  % \bibitem{hart1968}
+  % Peter E. Hart and Nils J. Nilsson and Bertram Raphael: ``A Formal Basis for the Heuristic Determination of Minimal Cost Paths,''
+  % IEEE Transactions on Systems Science and Cybernetics, Vol. 4, No.2, pp. 100-107, 1968.
 
   %\bibitem{dijkstra1959}
   %E. W. Dijkstra : ``A Note on Two Problems in Connexion with Graphs,''
   %Numerische Mathematik, Vol. 1, pp. 269-271, 1959.
 
-  \bibitem{alberto2006}
-  Bemporad, Alberto: ``Model Predictive Control Design: New Trends and Tools,''
-  Proceedings of the 45th IEEE Conference on Decision and Control, pp. 6678-6683, 2006.
+  % \bibitem{alberto2006}
+  % Bemporad, Alberto: ``Model Predictive Control Design: New Trends and Tools,''
+  % Proceedings of the 45th IEEE Conference on Decision and Control, pp. 6678-6683, 2006.
 
   \bibitem{pcl_lsc}
   ROS Perception: ``ROS Perception/pointcloud\_to\_laserscan (humble branch),'' \url{https://github.com/ros-perception/pointcloud_to_laserscan} (last visit: 2025-02-01).
 
-  \bibitem{autoware}
-  The Autoware Foundation: ``autowarefoundation/autoware.universe,'' \url{https://github.com/autowarefoundation/autoware.universe.git} (last visit: 2023-11-19).
+  % \bibitem{autoware}
+  % The Autoware Foundation: ``autowarefoundation/autoware.universe,'' \url{https://github.com/autowarefoundation/autoware.universe.git} (last visit: 2023-11-19).
   
   \bibitem{nav2_amcl}
   ROS Navigation: ``navigation2/nav2\_amcl,'' \url{https://github.com/ros-navigation/navigation2/tree/main/nav2_amcl}  (last visit: 2025-02-02).
@@ -630,24 +632,24 @@ IMUや3次元LiDARの追加，自作のナビゲーションスタックの使�
   \bibitem{slam_toolbox}
   Steve Macenski: ``slam\_toolbox (ros2 branch),'' \url{https://github.com/SteveMacenski/slam_toolbox} (last visit: 2025-02-01).
 
-  \bibitem{ike_nav_loc_youtube}
-  池邉龍宏: ``自作パッケージで屋外自律移動してみた in つくばチャレンジ2023（本走行）''，
-  \url{https://www.youtube.com/embed/k9yxRKOCa14?si=c7ISmE1wH5W4BhgU&amp;start=1365} (last visit 2024-01-05)
+  % \bibitem{ike_nav_loc_youtube}
+  % 池邉龍宏: ``自作パッケージで屋外自律移動してみた in つくばチャレンジ2023（本走行）''，
+  % \url{https://www.youtube.com/embed/k9yxRKOCa14?si=c7ISmE1wH5W4BhgU&amp;start=1365} (last visit 2024-01-05)
 
-  \bibitem{上田2023}
-上田隆一, 登内リオン, 池邉龍宏, 林原靖男: ``移動ロボットのための自己位置の不確かさを考慮したセンシングできない固定障害物の回避手法 ---価値反復を用いたナビゲーションにおける状態空間の局所拡張---'', 第28回ロボティクスシンポジア講演論文集, pp. 118-123, 2023.
+%   \bibitem{上田2023}
+% 上田隆一, 登内リオン, 池邉龍宏, 林原靖男: ``移動ロボットのための自己位置の不確かさを考慮したセンシングできない固定障害物の回避手法 ---価値反復を用いたナビゲーションにおける状態空間の局所拡張---'', 第28回ロボティクスシンポジア講演論文集, pp. 118-123, 2023.
 
-  \bibitem{tonouchi2023}
-  登内リオン, 池邉龍宏, 林原靖男, 上田隆一: ``価値反復を用いた移動ロボットによる屋外ナビゲーション,''
-  日本機械学会ロボティクス・メカトロニクス講演会, 2P1-G06, 2023.
+  % \bibitem{tonouchi2023}
+  % 登内リオン, 池邉龍宏, 林原靖男, 上田隆一: ``価値反復を用いた移動ロボットによる屋外ナビゲーション,''
+  % 日本機械学会ロボティクス・メカトロニクス講演会, 2P1-G06, 2023.
 
-  \bibitem{ueda2023JRM}
-  R. Ueda, L. Tonouchi, T. Ikebe, and Y. Hayashibara: ``Implementation of Brute-Force Value Iteration for Mobile Robot Path Planning and Obstacle Bypassing,''
-  J. Robot. Mechatron., Vol.35, No.6, pp. 1489-1502, 2023.
+  % \bibitem{ueda2023JRM}
+  % R. Ueda, L. Tonouchi, T. Ikebe, and Y. Hayashibara: ``Implementation of Brute-Force Value Iteration for Mobile Robot Path Planning and Obstacle Bypassing,''
+  % J. Robot. Mechatron., Vol.35, No.6, pp. 1489-1502, 2023.
 
-  \bibitem{ikebeMECH}
-  池邉龍宏, 林原靖男, 上田隆一: ``未知障害物によるモンテカルロ自己位置推定の破綻を防ぐための観測範囲の制限と選択'',
-  日本機械学会ロボティクス・メカトロニクス講演会, 2A2-G06, 2023.
+  % \bibitem{ikebeMECH}
+  % 池邉龍宏, 林原靖男, 上田隆一: ``未知障害物によるモンテカルロ自己位置推定の破綻を防ぐための観測範囲の制限と選択'',
+  % 日本機械学会ロボティクス・メカトロニクス講演会, 2A2-G06, 2023.
   
   \bibitem{BabaVIDVIP}
   T. Baba, “VIDVIP: Dataset for Object Detection During Sidewalk Travel,” J. Robot. Mechatron., Vol.33 No.5, pp. 1135-1143, 2021. https://doi.org/10.20965/jrm.2021.p1135
