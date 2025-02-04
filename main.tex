@@ -113,7 +113,7 @@ CANハーネスが梱包等が梱包されている。
       部品 & 数量 & 詳細 \\
       \hline
       ODrive S1 & 2 & モータドライバー \\
-      ODrive Botwheel & 2 & インホイールモーター（エンコーダ付き） \\
+      ODrive Botwheel & 2 & インホイールモーター \\
       Chassis Plate & 1 & シャーシ \\
       Caster & 1 & キャスター \\
       CAN harnesses & 2 & CAN ハーネス \\
@@ -136,7 +136,14 @@ BotWheel Explorer Kitは、前方の2つの駆動輪と後方の1つの受動輪
 ただ、無料ライセンスではチーム開発ができなかったため、制作したCADモデルを共有する際にはOnshape\cite{Onshape}を使用した。
 
 
-
+センサ構成について、図\ref{fig:botwheel-explorer-schematic}に示す。
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=1.0\linewidth]{figs/botwheel-explorer-schematic.pdf}
+    \caption{機体の回路構成}
+    \label{fig:botwheel-explorer-schematic}
+  \end{center}
+\end{figure}
 
 センサーについては、3次元LiDARとIMUが内蔵されているLivox社のMid-360を搭載した。
 Mid-360を採用した理由は下記の4点である。
