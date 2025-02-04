@@ -74,14 +74,14 @@ Kazutoshi FUKAYA\authorrefmark{1}、Kenshin FUJIE\authorrefmark{1}、Yoshiki SHI
 
 
 \subsection{ハードウェア構成}\label{sub:hardware}
-ロボットの外観を図\ref{fig:robot}に示す。
+ロボットの外観を図\ref{fig:trainee}に示す。
 本ロボットは、ODrive社製の既製品である、BotWheel Explorer Kit\cite{RTshop}がベースになっている。
 
 \begin{figure}[h]
   \begin{center}
-    \includegraphics[width=1.0\linewidth]{figs/0_robot.pdf}
-    \caption{チームの機体}
-    \label{fig:robot}
+    \includegraphics[width=1.0\linewidth]{figs/trainee.pdf}
+    \caption{チームの機体(機体名: トレーニー)}
+    \label{fig:trainee}
   \end{center}
 \end{figure}
 
@@ -125,7 +125,7 @@ CANハーネスが梱包等が梱包されている。
 
 
 BotWheel Explorer Kitは、前方の2つの駆動輪と後方の1つの受動輪が、三角形の金属板に取り付けられている足回りだけのユニットであり、全面の保護カバーはない。
-そこで、図\ref{fig:robot_flame}(a)のように20×20[mm]のアルミフレームを金属板に固定し、(b)に示すようにポリプレートのカバーを取り付けることで雨除けとした。
+そこで、図\ref{fig:trainee_flame}(a)のように20×20[mm]のアルミフレームを金属板に固定し、(b)に示すようにポリプレートのカバーを取り付けることで雨除けとした。
 ポリプレートは、厚さ3[mm]で、手で簡単に曲げられることから湾曲した形状を作りやすいため採用した。
 さらに、金属板にはナットが飛び出ている箇所があるなど平らなスペースが小さいことから、アルミフレームの上に四角形のポリカーボネート\cite{PE960_1}の板を取り付け、ノートPCやバッテリーを搭載できるスペースを広げた。
 また、ロボットの最低高さ600[mm]という寸法制限と運搬のしやすさを考え、アルミフレームを上部に伸ばし台車の持ち手のような構造とした。
@@ -160,7 +160,7 @@ Mid-360の取り付け位置は、1つのLiDARで自己位置推定と障害物�
 地面から高さ10〜30[cm]付近の3次元点群を2次元に変換することで行う。
 また障害物回避は地面周辺が死角とならない範囲が広いほど軌道計画を柔軟に行うことができる。
 そのため、地面から高さ10〜30[cm]付近の点群を測定できる条件下で前述の機体を覆うカバーによって生まれる
-死角をできる限り狭くするために、図\ref{fig:robot_flame}(b)に示す通り下向きにLiDARを取り付ける方針とした。
+死角をできる限り狭くするために、図\ref{fig:trainee_flame}(b)に示す通り下向きにLiDARを取り付ける方針とした。
 なお機体を覆うカバーによって生まれる死角はOnshapeの3Dスケッチ機能を用いて描画し、
 より死角の少なくなる取り付け位置を算出した。
 
@@ -182,7 +182,7 @@ Mid-360の取り付け位置は、1つのLiDARで自己位置推定と障害物�
   \begin{center}
     \includegraphics[width=1.0\linewidth]{figs/robot_flame.pdf}
     \caption{メカ設計}
-    \label{fig:robot_flame}
+    \label{fig:trainee_flame}
   \end{center}
 \end{figure}
 
