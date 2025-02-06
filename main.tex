@@ -127,7 +127,8 @@ BotWheel Explorer Kitは、前方に2つの駆動輪、後方に1つの受動輪
 さらに、シャーシにはナットが飛び出している箇所が多く、平坦なスペースが限られていた。
 そのため、アルミフレームの上部にポリカーボネートの板を取り付け、ノートPCやバッテリーを搭載できるスペースを確保した。
 
-また、つくばチャレンジの規定ではロボットの最低高さを600mm以上とする制約がある。
+% また、つくばチャレンジの規定ではロボットの最低高さを600mm以上とする制約がある。
+また、つくばチャレンジの規定ではロボットの全高を0.6m以上とする制約がある。
 さらに、運搬の利便性を考慮し、アルミフレームを上部に伸ばして台車の持ち手のような構造とした。
 非常停止スイッチおよび3次元LiDARは、3Dプリンタで製作した治具を用い、機体上部の高さ750mmのアルミフレームに固定した。
 
@@ -183,7 +184,7 @@ LiDARを下向きに取り付けることで、自己位置推定と障害物回
 \begin{figure}[h]
   \begin{center}
     \includegraphics[width=1.0\linewidth]{figs/lidar_position_onshape.pdf}
-    \caption{メカ設計}
+    \caption{カバーによるLiDARの死角の可視化}
     \label{fig:lidar_pos}
   \end{center}
 \end{figure}
@@ -229,7 +230,7 @@ nav2\_amcl による自己位置推定の不確実性を低減する手法とし
 
 つくばチャレンジ2024での本走行の結果を表\ref{MainRun}に示す。
 本走行の結果は 表 に示す通り、429m となった。
-動画 \ref{} のように、走行中にアクシデントは発生せず、終始スムーズに自律走行をすることができた。
+動画 \cite{youtube_real_run} のように、走行中にアクシデントは発生せず、終始スムーズに自律走行をすることができた。
 本チームの目標である 確認走行区間の完走は達成できたが、
 この目標に注力した結果、それ以降の区間の地図作成が間に合わず、本走行の継続はできなかった。
 \begin{table}[H]
@@ -246,7 +247,7 @@ nav2\_amcl による自己位置推定の不確実性を低減する手法とし
 
 \subsection{本チームの目標の達成度}
 
-章 \ref{sec:1} で説明した本チームの目標について、達成度を評価する。
+\ref{sec:1}章 で説明した本チームの目標について、達成度を評価する。
 各目標は、実現可能であると考えた上で設定したものである。
 
 \paragraph{参加登録}
@@ -287,9 +288,8 @@ Mid-360 の照射パターンは、他の 3 次元 LiDAR と異なり、各ス�
 
 \paragraph{確認走行区間を完走}
 確認走行区間の完走については、技術的課題に直面する場面があり、目標は達成したものの苦戦した。
-苦労した点については 章 \ref{sec:4} で詳述するが、自己位置推定 に関連するものである。
+苦労した点については  \ref{sec:4} 節で詳述するが、自己位置推定 に関連するものである。
 自己位置推定の問題に対処した後は、確認走行区間の完走という目標のハードルが大幅に下がった。
-
 
 \subsection{本走行・実験走行で見つかった課題}\label{sec:4}
 
@@ -347,6 +347,7 @@ Mid-360 の照射パターンは、他の 3 次元 LiDAR と異なり、各ス�
 そこで、スマートフォンをカメラとして採用した。
 一般的なスマートフォンには上記の機能が備わっており、旧型モデルを使用することでコストも抑えられる。
 本チームでは図\ref{fig:smartphone}に示す2020年発売のGalaxy A21 SCV49を採用した。
+2025年1月現在、市場価格で1万円前後である。
 
 \subsection{信号認識手法}
 本課題を達成するためには、歩行者用信号（以下、信号）の検出および、横断歩道内で停止している自動車の有無の確認など、安全確認が求められる。
@@ -424,16 +425,21 @@ Mid-360 の照射パターンは、他の 3 次元 LiDAR と異なり、各ス�
   \bibitem{PE960_1}
   モノタロウ: ``ポリプレート''，\url{https://www.monotaro.com/p/3576/7697/?} (last visit 2025-01-05)
 
-    \bibitem{ROS}
+  \bibitem{ROS}
   Morgan Quigley {\it et al.}: ``ROS: an open-source Robot Operating System,''
   Open-Source Software workshop of the International Conference on Robotics and Automation、2009.
+  
   \bibitem{mid360}
   Livox Mid-360，\url{https://www.livoxtech.com/jp/mid-360}
+  
   \bibitem{Fusion360}
   Autodesk，\url{https://www.autodesk.com/jp/products/fusion-360/overview?term=1-YEAR&tab=subscription#top} (last visit 2025-02-02)
 
   \bibitem{Onshape}
-  PTC，\url{https://www.onshape.com/en/} (last visit 2025-02-02)
+  PTC，\url{https://www.onshape.com/en/} (last visit 2025-01-31)
+
+  \bibitem{youtube_real_run}
+  新卒だけどつくばチャレンジ出るよ つくばチャレンジ2024 本走行（2024/12/8），\url{https://www.youtube.com/watch?v=fuvcGf8-x7I} (last visit 2025-01-31)
 
   \bibitem{pcl_lsc}
   ROS Perception: ``ROS Perception/pointcloud\_to\_laserscan (humble branch),'' \url{https://github.com/ros-perception/pointcloud_to_laserscan} (last visit: 2025-02-01).
