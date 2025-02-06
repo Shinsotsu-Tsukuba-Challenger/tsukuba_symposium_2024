@@ -167,7 +167,7 @@ Mid-360の取り付け位置は、自己位置推定と障害物回避の両立�
 地面から高さ10〜30 cmの3次元点群を2次元に変換して使用する。
 一方で、障害物回避では、地面周辺の死角を最小限に抑えることが求められる。
 そのため、機体を覆うカバーによる死角を考慮しつつ、最適なLiDARの取り付け位置を検討した。
-具体的には、Onshapeの3Dスケッチ機能を用いてカバーによる死角を可視化し、
+具体的には、図\ref{fig:lidar_pos}に示すようにOnshapeの3Dスケッチ機能を用いてカバーによる死角を可視化し、
 最も死角が少なくなる取り付け位置を算出した。
 その結果、図\ref{fig:trainee_flame}(b)に示すような位置に
 LiDARを下向きに取り付けることで、自己位置推定と障害物回避の両方に適したセンサ配置を実現した。
@@ -177,6 +177,14 @@ LiDARを下向きに取り付けることで、自己位置推定と障害物回
     \includegraphics[width=1.0\linewidth]{figs/robot_flame.pdf}
     \caption{メカ設計}
     \label{fig:trainee_flame}
+  \end{center}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=1.0\linewidth]{figs/lidar_position_onshape.pdf}
+    \caption{メカ設計}
+    \label{fig:lidar_pos}
   \end{center}
 \end{figure}
 
