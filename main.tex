@@ -100,6 +100,7 @@ Full Kitに含まれる部品の一覧を表\ref{tab:botwheel_kit}に示す。
 モータ取り付け用のシャーシ、モータドライバとインホイールモータ間の通信に必要なCANハーネスなどが含まれている。
 \begin{table}[h]
   \centering
+  \caption{BotWheel Explorer Kit の部品一覧}
   \begin{tabular}{|l|c|l|}
       \hline
       \multicolumn{3}{|c|}{\textbf{BotWheel Explorer Kit（Full Kit）}} \\
@@ -113,7 +114,6 @@ Full Kitに含まれる部品の一覧を表\ref{tab:botwheel_kit}に示す。
       CAN harnesses & 2 & CANハーネス \\
       \hline
   \end{tabular}
-  \caption{BotWheel Explorer Kit の部品一覧}
   \label{tab:botwheel_kit}
 \end{table}
 
@@ -275,7 +275,7 @@ BotWheel Explorer Kitをベースに機体を独自設計し、
 Mid-360 の照射パターンは、他の 3 次元 LiDAR と異なり、各スキャンごとに同じ位置を計測するわけではないため、特殊であり、
 歪みを抑えた地図を作成できるかどうかの見通しは立っていなかった。
 しかし、pointcloud\_to\_laserscan と slam\_toolbox を使用したところ、予想に反して容易に地図を生成できた。
-その結果、図 \ref{} に示すように、実環境と比較してもほぼ歪みのない地図が得られた。
+その結果、図 \ref{fig:map} に示すように、実環境と比較してもほぼ歪みのない地図が得られた。
 
 \begin{figure}[h]
   \begin{center}
@@ -363,7 +363,8 @@ Mid-360 の照射パターンは、他の 3 次元 LiDAR と異なり、各ス�
 
 \subsection{信号認識の結果}
 事前に取得した課題コース上の動画を本モデルに認識させたところ、青信号が検出できない場合があることを確認した。
-これは、\textbf{@@ここに理由を記載してほしい 海老田へ@@}という可能性がある。
+% これは、\textbf{@@ここに理由を記載してほしい 海老田へ@@}という可能性がある。
+これは、青信号と背景の空の色合いが似通っていたからという可能性がある。
 
 この問題に対処するため、赤信号の検出には YOLOv8 を用い、青信号の検出には画像処理を組み合わせたハイブリッド手法を導入した。
 具体的には、信号機の上部（赤色領域）と下部（青色領域）の輝度差を利用し、閾値ベースの手法により青信号の検出精度を向上させた。
