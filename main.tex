@@ -358,21 +358,21 @@ Mid-360は表\ref{tab:lidar_params}のようにデフォルトパラメータ\ci
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{|l|l|p{3cm}|l|}
+  \caption{Mid-360 Configuration Parameters}
+  \begin{tabular}{|l|p{4.5cm}|l|}
       \hline
-      \textbf{Parameter} & \textbf{Type} & \textbf{Description} & \textbf{Default} \\
+      \textbf{Parameter} & \textbf{Description} & \textbf{Default} \\
       \hline
-      pattern\_mode & Int & Space scan pattern \newline
+      pattern\_mode &
+      Space scan pattern: \newline
       0: non-repeating scanning pattern mode \newline
       1: repeating scanning pattern mode \newline
-      2: repeating scanning pattern mode (low scanning rate) & 0 \\
+      2: repeating scanning pattern mode (low scanning rate) 
+      & 0 \\
       \hline
   \end{tabular}
-  \caption{Mid-360 Configuration Parameters}
   \label{tab:lidar_params}
 \end{table}
-
-
 
 \paragraph{地図作成時における推定旋回量のずれ}
 確認走行区間を超えた先の地図作成において、ロボットの推定旋回量にずれが生じる課題が発生した。
@@ -412,7 +412,7 @@ Mid-360は表\ref{tab:lidar_params}のようにデフォルトパラメータ\ci
 \begin{itemize}
     \item 信号や車両、横断歩道などの高精度な認識が可能
     \item 追加学習なしで実用レベルの認識精度を達成
-    \item YOLOv8ベースのため、従来手法と比較して処理速度が高速
+    \item YOLOv8 ベースのため、従来手法より高速処理が可能
 \end{itemize}
 
 \subsection{信号認識の結果}
@@ -508,7 +508,7 @@ Mid-360は表\ref{tab:lidar_params}のようにデフォルトパラメータ\ci
   \bibitem{youtube_real_run}
   新卒だけどつくばチャレンジ出るよ つくばチャレンジ2024 本走行（2024/12/8），\url{https://www.youtube.com/watch?v=fuvcGf8-x7I} (last visit 2025-01-31)
   
-  bibitem{mid360param}
+  \bibitem{mid360param}
   Livox device driver under Ros，\url{https://github.com/Livox-SDK/livox_ros_driver2} (last visit 2025-01-31)
 
   \bibitem{BabaVIDVIP}
