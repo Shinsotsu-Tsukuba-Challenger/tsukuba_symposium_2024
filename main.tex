@@ -198,8 +198,22 @@ LiDARを下向きに取り付けることで、自己位置推定と障害物回
 本チームのシステム構成を図 \ref{fig:shinsotu_system_diagram} に示す。
 ロボットに搭載された 3次元LiDAR は、センサ情報（点群・IMU）を Ethernet を介してノート PC に送信する。
 ノート PC は、自己位置推定・経路生成・経路追従などの主要な計算を担当する。
+ノートPCの諸元を表\ref{table:laptop}に示す. 
 計算結果に基づく制御指令は、Ethernet を介して Raspberry Pi 4B に送信され、
 Raspberry Pi 4B に接続された CAN HAT から ODrive S1 を介して CAN 通信を行い、機体を制御する。
+
+\begin{table}[H]
+  \centering
+  \caption{ノートPCの諸元}
+  \label{table:laptop}
+	  \begin{tabular}{|l|p{1.0cm}|l|}
+    \hline
+    CPU & RAM\\ 
+    \hline
+    第13世代 インテル® Core™ i5プロセッサー 1334U  & 16GB \\ 
+    \hline
+  \end{tabular}
+\end{table}
 
 \begin{figure}[h]
   \begin{center}
