@@ -65,7 +65,8 @@ Kazutoshi FUKAYA\eauthorrefmark{1}、Kenshin FUJIE\eauthorrefmark{1}、Yoshiki S
 
 
 \subsection{ハードウェア構成}\label{sub:hardware}
-ロボットの外観を図\ref{fig:trainee}に示す。
+ロボットの外観を図\ref{fig:trainee}に示す。ロボットのハードウェア詳細について表
+\ref{table:tarainee_hardware_syousai}に示す。
 本ロボットは、ODrive社製の既製品である、BotWheel Explorer Kit\cite{odrive}がベースになっている。
 
 \begin{figure}[h]
@@ -75,6 +76,25 @@ Kazutoshi FUKAYA\eauthorrefmark{1}、Kenshin FUJIE\eauthorrefmark{1}、Yoshiki S
     \label{fig:trainee}
   \end{center}
 \end{figure}
+
+\begin{table}[H]
+  \centering
+  \caption{トレーニーのハードウェア詳細}
+  \label{table:tarainee_hardware_syousai}
+	  \begin{tabular}{|p{3.0cm}|l|}
+    \hline
+    全長[m] & 0.43\\ 
+    \hline
+    全幅 [m] & 0.63 \\ 
+    \hline
+    全高 [m] & 0.77 \\ 
+    \hline
+    重量 [kg] & 20 \\ 
+    \hline
+    金額 [万円] & 44 \\ 
+    \hline
+  \end{tabular}
+\end{table}
 
 \begin{figure}[h]
   \begin{center}
@@ -374,8 +394,7 @@ Mid-360 の照射パターンは、他の 3 次元 LiDAR と異なり、各ス�
 
 \subsection{信号認識の結果}
 事前に取得した課題コース上の動画を本モデルに認識させたところ、青信号が検出できない場合があることを確認した。
-% これは、\textbf{@@ここに理由を記載してほしい 海老田へ@@}という可能性がある。
-これは、青信号と背景の空の色合いが似通っていたからという可能性がある。
+この原因として、青信号と背景の空の色が類似していた可能性が考えられる。
 
 この問題に対処するため、赤信号の検出には YOLOv8 を用い、青信号の検出には画像処理を組み合わせたハイブリッド手法を導入した。
 具体的には、信号機の上部（赤色領域）と下部（青色領域）の輝度差を利用し、閾値ベースの手法により青信号の検出精度を向上させた。
