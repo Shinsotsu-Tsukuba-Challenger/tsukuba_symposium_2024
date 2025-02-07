@@ -343,20 +343,43 @@ Mid-360 の照射パターンは、他の 3 次元 LiDAR と異なり、各ス�
 \end{itemize}
 これにより観測更新頻度が高まり、自己位置ロストの問題に対応した。
 
-% \paragraph{グローバルプランナーの経路選択}
-% 本チームが使用したグローバルプランナーは、地図上にある障害物や侵入可能領域外との境界からできるだけ離れたルートを選択する。
-% これにより、市役所裏側の道路では障害物が少ないため、道路の中心を走行してしまうという課題があった。
-% この課題は地図上の侵入可能領域を狭くし、道路の端しか通ることができないようにすることで解消したが、
-% 侵入可能領域を狭くすることは自己位置ロストのしやすさとトレードオフの関係にある。
-% そのため、今後はグローバルプランナーの調整により障害物からできるだけ離れるような
-% 経路選択を行わせないようにすべきであると考えられる。
+\paragraph{Mid-360によるランダムスキャン}
+Mid-360は表\ref{tab:lidar_params}のようにデフォルトパラメータ\cite{mid360param}において、ランダムスキャンパターンを採用しており、
+同じポイントを繰り返し観測することができないため、
+スキャンデータの密度が不均一になる問題が発生した。
+この影響で、特定の領域における点群の密度が不足し、
+自己位置推定が不安定になることがあった。
+
+この問題に対処するため、
+スキャンパターンの設定を非繰り返しモード (0) から繰り返しモード (1) に変更したところ、
+同じポイントを周期的に測定できるようになり、
+点群の密度が向上した。これにより、Mid-360の観測データがより安定し、
+自己位置推定が安定することを確認した。
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|l|p{3cm}|l|}
+      \hline
+      \textbf{Parameter} & \textbf{Type} & \textbf{Description} & \textbf{Default} \\
+      \hline
+      pattern\_mode & Int & Space scan pattern \newline
+      0: non-repeating scanning pattern mode \newline
+      1: repeating scanning pattern mode \newline
+      2: repeating scanning pattern mode (low scanning rate) & 0 \\
+      \hline
+  \end{tabular}
+  \caption{Mid-360 Configuration Parameters}
+  \label{tab:lidar_params}
+\end{table}
+
+
 
 \paragraph{地図作成時における推定旋回量のずれ}
 確認走行区間を超えた先の地図作成において、ロボットの推定旋回量にずれが生じる課題が発生した。
 この課題は、Yaw方向の姿勢推定誤差が大きいことが主な要因と考えられる。
 現時点では解消できていないが、カルマンフィルタを用いてIMUの情報を統合し、Yaw方向の推定精度を向上させることで解消できると考えられる。
 
-\paragraph{3次元点群の抽出高さ}
+\paragraph{3次元点群の抽出の高さ}
 実験走行において、車止めを検知できずに衝突する課題が発生した。
 この問題は、3 次元点群を 2 次元に変換する歳の高さパラメータを適切に調整することで解消した。
 
@@ -477,7 +500,7 @@ Mid-360 の照射パターンは、他の 3 次元 LiDAR と異なり、各ス�
   ROS2 AMCL: ``navigation2/nav2\_amcl,'' \url{https://github.com/ros-navigation/navigation2/tree/main/nav2_amcl}  (last visit: 2025-01-31).
   
   \bibitem{nav2}
-  ROS Navigation: ``ros-navigation/navigation2 (humble branch),'' \url{https://github.com/ros-navigation/navigation2} (last visit: 2025-01-30).
+  ROS 2 Navigation Framework and System: ``ros-navigation/navigation2 (humble branch),'' \url{https://github.com/ros-navigation/navigation2} (last visit: 2025-01-30).
   
   \bibitem{slam_toolbox}
   Steve Macenski: ``slam\_toolbox (ros2 branch),'' \url{https://github.com/SteveMacenski/slam_toolbox} (last visit: 2025-01-31).
@@ -485,6 +508,9 @@ Mid-360 の照射パターンは、他の 3 次元 LiDAR と異なり、各ス�
   \bibitem{youtube_real_run}
   新卒だけどつくばチャレンジ出るよ つくばチャレンジ2024 本走行（2024/12/8），\url{https://www.youtube.com/watch?v=fuvcGf8-x7I} (last visit 2025-01-31)
   
+  bibitem{mid360param}
+  Livox device driver under Ros，\url{https://github.com/Livox-SDK/livox_ros_driver2} (last visit 2025-01-31)
+
   \bibitem{BabaVIDVIP}
   T. Baba, “VIDVIP: Dataset for Object Detection During Sidewalk Travel,” J. Robot. Mechatron., Vol.33 No.5, pp. 1135-1143, 2021. https://doi.org/10.20965/jrm.2021.p1135
   
